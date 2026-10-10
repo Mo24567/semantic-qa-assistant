@@ -63,8 +63,8 @@ There are two separate Streamlit apps:
   - **Evaluation:** layer distribution, confidence bands, coverage curve and gap analysis.
   - **Settings.**
 
-How documents become a knowledge base (extraction, GPT drafts, mandatory review, indexing) is
-walked through in INTERVIEW_PREP.md.
+Documents become a knowledge base in four steps: text extraction, GPT-drafted Q&A pairs, mandatory
+human review, then indexing.
 
 ## Results
 
@@ -112,13 +112,9 @@ answers, and scoring requires an exact match on the expected question.
 
 **0.60** was chosen from 0.55, 0.60, 0.65 and 0.70 (133 queries, LLM off). It drops the weakest
 borderline matches for only four more unanswered queries, while higher values starve the Q&A layer
-without finding new gaps. The full comparison table is in
-INTERVIEW_PREP.md.
+without finding new gaps.
 
 ## Key design decisions
-
-The full reasoning and trade-offs for each are in
-INTERVIEW_PREP.md §5.
 
 - **Embed questions, not answers.** User queries look like questions, so they sit closer to stored questions than to policy text.
 - **Threshold chosen by sensitivity analysis.** A wrong policy answer is worse than no answer, so 0.60 favours confidence without starving the Q&A layer.
@@ -246,8 +242,6 @@ data/              Runtime data, git-ignored (uploads, indexes, logs)
 
 Further limitations include no precision or recall, a single embedding model, fixed-size chunking,
 unmeasured latency, a threshold tuned on the evaluation queries, and unlogged generated answers.
-They're covered in
-INTERVIEW_PREP.md.
 
 ## Tech stack
 
