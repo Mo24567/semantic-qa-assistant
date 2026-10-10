@@ -1,0 +1,14 @@
+.git
+.github
+.env
+API KEY.txt
+venv
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+data
+*.faiss
+Dockerfile
+docker-compose.yml
+.dockerignore

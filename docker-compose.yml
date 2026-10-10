@@ -1,0 +1,34 @@
+# Full system: user app on http://localhost:8501, admin app on http://localhost:8502.
+# Both containers share ./data, so documents ingested in the admin app are
+# searchable in the user app as soon as the index is rebuilt.
+#
+#   cp .env.example .env   # set OPENAI_API_KEY and ADMIN_PASSWORD
+#   docker compose up --build
+
+services:
+  app:
+    build: .
+    image: semantic-qa-assistant
+    env_file: .env
+    environment:
+      APP_FILE: app.py
+      PORT: "8501"
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  admin:
+    image: semantic-qa-assistant
+    depends_on:
+      - app
+    env_file: .env
+    environment:
+      APP_FILE: admin.py
+      PORT: "8502"
+    ports:
+      - "8502:8502"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
