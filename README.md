@@ -127,6 +127,9 @@ without finding new gaps.
 
 ## Live demo
 
+**Try it live:** https://semantic-app-assistantgit-xndz7ayaq67c3bmygahrwz.streamlit.app/
+(free-tier app; if it has been idle it can take 20-30 seconds to wake up)
+
 The public demo runs `app.py` with `DEMO_MODE=true`:
 
 - **No answer generation.** Any OpenAI key is blanked *before settings load*, not just hidden, and
@@ -140,8 +143,9 @@ The public demo runs `app.py` with `DEMO_MODE=true`:
 
 To deploy it on [Streamlit Community Cloud](https://streamlit.io/cloud):
 
-1. Create a new app from this repo with main file `app.py`, and pick Python 3.10 under
-   *Advanced settings*.
+1. Create a new app from this repo with main file `app.py`. Under *Advanced settings*, pick
+   the lowest Python version offered (3.10 is not available on Streamlit Community Cloud as
+   of this writing; 3.11 works).
 2. Under *Secrets*, add `DEMO_MODE = "true"`. Streamlit exposes root-level secrets as environment
    variables. Do **not** add an OpenAI key.
 3. The first load takes about a minute while the embedding model downloads and the indexes build.
