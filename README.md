@@ -1,5 +1,10 @@
 # Semantic Q&A Assistant
 
+Python · Streamlit · FAISS · sentence-transformers · Docker · GitHub Actions
+
+[Live demo](https://semantic-app-assistantgit-xndz7ayaq67c3bmygahrwz.streamlit.app/) · [Evaluation](#results) · [Run locally](#getting-started) · [Limitations](#known-limitations)
+
+
 [![Tests](https://github.com/Mo24567/semantic-qa-assistant/actions/workflows/tests.yml/badge.svg)](https://github.com/Mo24567/semantic-qa-assistant/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
